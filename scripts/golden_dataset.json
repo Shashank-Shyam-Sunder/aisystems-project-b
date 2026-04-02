@@ -1,0 +1,502 @@
+[
+    {
+        "id":  "gb001",
+        "query":  "I bought a mixer 20 days ago and it is unused in the original box. Can I still return it?",
+        "expected_intent":  "return_or_refund",
+        "expected_answer":  "Yes. Standard purchases can be returned within 30 calendar days from the delivery date if the item is unused and in its original packaging.",
+        "expected_source":  "return_policy",
+        "expected_escalation":  false,
+        "difficulty":  "easy",
+        "category":  "returns"
+    },
+    {
+        "id":  "gb002",
+        "query":  "Can I return a digital download game key I already opened?",
+        "expected_intent":  "return_or_refund",
+        "expected_answer":  "No. Opened software and digital downloads are not returnable.",
+        "expected_source":  "return_policy",
+        "expected_escalation":  false,
+        "difficulty":  "easy",
+        "category":  "returns"
+    },
+    {
+        "id":  "gb003",
+        "query":  "I placed an order on November 20. Until when can I return it under the holiday policy?",
+        "expected_intent":  "return_or_refund",
+        "expected_answer":  "Items purchased between November 15 and December 31 can be returned until January 31 of the following year, as long as the normal return conditions are met.",
+        "expected_source":  "return_policy",
+        "expected_escalation":  false,
+        "difficulty":  "easy",
+        "category":  "returns"
+    },
+    {
+        "id":  "gb004",
+        "query":  "I am a Premium Silver member. How long is my return window?",
+        "expected_intent":  "membership",
+        "expected_answer":  "Premium Silver members get a 45-day return window from the delivery date on eligible purchases.",
+        "expected_source":  "premium_membership",
+        "expected_escalation":  false,
+        "difficulty":  "easy",
+        "category":  "membership"
+    },
+    {
+        "id":  "gb005",
+        "query":  "I am Premium Gold and want to return a laptop I opened 40 days after delivery. Is that allowed?",
+        "expected_intent":  "return_or_refund",
+        "expected_answer":  "Yes, if it is in functional condition with all original accessories. Premium members may return opened electronics within their extended return window, and Premium Gold has a 60-day window.",
+        "expected_source":  "premium_membership",
+        "expected_escalation":  false,
+        "difficulty":  "medium",
+        "category":  "returns"
+    },
+    {
+        "id":  "gb006",
+        "query":  "I bought headphones in a flash sale and want to return them after 10 days. Will there be any special restrictions?",
+        "expected_intent":  "return_or_refund",
+        "expected_answer":  "Yes. Promotional purchases normally have a 15-day return window and a 10% restocking fee unless the item was marked Final Sale.",
+        "expected_source":  "promotional_events",
+        "expected_escalation":  false,
+        "difficulty":  "medium",
+        "category":  "returns"
+    },
+    {
+        "id":  "gb007",
+        "query":  "I am a Premium member and bought something during a seasonal sale. Do the reduced promo return window and restocking fee still apply to me?",
+        "expected_intent":  "return_or_refund",
+        "expected_answer":  "No. Premium members are exempt from the reduced promotional return window and the restocking fee, although Final Sale items still cannot be returned.",
+        "expected_source":  "premium_membership",
+        "expected_escalation":  false,
+        "difficulty":  "medium",
+        "category":  "returns"
+    },
+    {
+        "id":  "gb008",
+        "query":  "I am 18 days past a promotional purchase window, but one earbud is cutting out. Can support help or is it automatically denied?",
+        "expected_intent":  "return_or_refund",
+        "expected_answer":  "This should be reviewed by support. If the item is genuinely defective, the issue should be handled as a defect or warranty case rather than a standard promotional return.",
+        "expected_source":  "slack_support_chat",
+        "expected_escalation":  true,
+        "difficulty":  "hard",
+        "category":  "support"
+    },
+    {
+        "id":  "gb009",
+        "query":  "My standard account is one day past the 30-day window, but my laptop has a confirmed manufacturing defect. What should happen?",
+        "expected_intent":  "return_or_refund",
+        "expected_answer":  "This needs support review. The normal path after the return window is warranty, but a human agent may decide on an exception for a confirmed defect.",
+        "expected_source":  "slack_support_chat",
+        "expected_escalation":  true,
+        "difficulty":  "hard",
+        "category":  "support"
+    },
+    {
+        "id":  "gb010",
+        "query":  "Can I exchange an item instead of getting a refund?",
+        "expected_intent":  "return_or_refund",
+        "expected_answer":  "Yes. You can request an exchange during the return process, subject to product availability. If the replacement item has a different price, the difference will be charged or refunded.",
+        "expected_source":  "return_policy",
+        "expected_escalation":  false,
+        "difficulty":  "easy",
+        "category":  "returns"
+    },
+    {
+        "id":  "gb011",
+        "query":  "What shipping options do you offer inside India?",
+        "expected_intent":  "general",
+        "expected_answer":  "Acmera offers Standard Shipping in 5-7 business days, Express Shipping in 2-3 business days, and Same-Day Delivery in select metro cities for eligible orders placed before 12:00 PM.",
+        "expected_source":  "shipping_policy",
+        "expected_escalation":  false,
+        "difficulty":  "easy",
+        "category":  "shipping"
+    },
+    {
+        "id":  "gb012",
+        "query":  "How much is standard shipping if my order total is below 999 rupees?",
+        "expected_intent":  "general",
+        "expected_answer":  "Standard Shipping is free above ₹999. Orders under ₹999 have a flat ₹99 shipping fee.",
+        "expected_source":  "shipping_policy",
+        "expected_escalation":  false,
+        "difficulty":  "easy",
+        "category":  "shipping"
+    },
+    {
+        "id":  "gb013",
+        "query":  "Which cities support same-day delivery and what is the cutoff time?",
+        "expected_intent":  "general",
+        "expected_answer":  "Same-day delivery is available in Mumbai, Delhi NCR, Bangalore, Hyderabad, Chennai, and Pune. Orders placed before 12:00 PM are delivered by 9:00 PM the same day.",
+        "expected_source":  "shipping_policy",
+        "expected_escalation":  false,
+        "difficulty":  "easy",
+        "category":  "shipping"
+    },
+    {
+        "id":  "gb014",
+        "query":  "Do you ship internationally?",
+        "expected_intent":  "general",
+        "expected_answer":  "No. Acmera does not currently offer international shipping.",
+        "expected_source":  "shipping_policy",
+        "expected_escalation":  false,
+        "difficulty":  "easy",
+        "category":  "shipping"
+    },
+    {
+        "id":  "gb015",
+        "query":  "Can I change my delivery address after placing an order?",
+        "expected_intent":  "order_status",
+        "expected_answer":  "Only if the order has not yet shipped. If you need a change, contact support immediately with your order number.",
+        "expected_source":  "support_faq",
+        "expected_escalation":  true,
+        "difficulty":  "medium",
+        "category":  "orders"
+    },
+    {
+        "id":  "gb016",
+        "query":  "My package arrived with visible damage. What should I do?",
+        "expected_intent":  "order_status",
+        "expected_answer":  "Report the damage within 48 hours of delivery and include photos. Support will arrange a replacement or full refund at no additional cost.",
+        "expected_source":  "shipping_policy",
+        "expected_escalation":  true,
+        "difficulty":  "medium",
+        "category":  "orders"
+    },
+    {
+        "id":  "gb017",
+        "query":  "Tracking says delivered, but I never got the package. What is the process?",
+        "expected_intent":  "order_status",
+        "expected_answer":  "File a claim within 7 days. The logistics team will investigate with the carrier, and if the package cannot be located, a full refund or replacement will be issued within 10 business days.",
+        "expected_source":  "shipping_policy",
+        "expected_escalation":  true,
+        "difficulty":  "medium",
+        "category":  "orders"
+    },
+    {
+        "id":  "gb018",
+        "query":  "How do I track my order?",
+        "expected_intent":  "order_status",
+        "expected_answer":  "Track it in the Acmera app or website under My Orders. You also receive SMS and email updates at each shipment stage.",
+        "expected_source":  "support_faq",
+        "expected_escalation":  false,
+        "difficulty":  "easy",
+        "category":  "orders"
+    },
+    {
+        "id":  "gb019",
+        "query":  "Why is my order taking longer than expected?",
+        "expected_intent":  "order_status",
+        "expected_answer":  "Delays can happen during high-demand periods, in remote delivery locations, or due to carrier issues. Check tracking for the latest status, and contact support if the delay goes well beyond the estimated window.",
+        "expected_source":  "support_faq",
+        "expected_escalation":  true,
+        "difficulty":  "medium",
+        "category":  "orders"
+    },
+    {
+        "id":  "gb020",
+        "query":  "Do remote pin codes take longer to deliver?",
+        "expected_intent":  "order_status",
+        "expected_answer":  "Yes. Deliveries to remote or rural pin codes may take an extra 2-3 business days, and a ₹149 remote-area surcharge may apply.",
+        "expected_source":  "shipping_policy",
+        "expected_escalation":  false,
+        "difficulty":  "easy",
+        "category":  "shipping"
+    },
+    {
+        "id":  "gb021",
+        "query":  "What payment methods can I use on Acmera?",
+        "expected_intent":  "billing_or_payment",
+        "expected_answer":  "Acmera accepts credit and debit cards, UPI, net banking, Acmera Wallet, EMI on eligible orders, and Cash on Delivery for eligible orders.",
+        "expected_source":  "payment_methods",
+        "expected_escalation":  false,
+        "difficulty":  "easy",
+        "category":  "payments"
+    },
+    {
+        "id":  "gb022",
+        "query":  "Can I use cash on delivery for a 30000 rupee order?",
+        "expected_intent":  "billing_or_payment",
+        "expected_answer":  "No. COD is available only for orders between ₹200 and ₹25,000.",
+        "expected_source":  "payment_methods",
+        "expected_escalation":  false,
+        "difficulty":  "easy",
+        "category":  "payments"
+    },
+    {
+        "id":  "gb023",
+        "query":  "Which banks support no-cost EMI and what order value is required?",
+        "expected_intent":  "billing_or_payment",
+        "expected_answer":  "No-cost EMI is available on select products for orders above ₹5,000 on credit cards from HDFC, ICICI, SBI, Axis, and Kotak.",
+        "expected_source":  "payment_methods",
+        "expected_escalation":  false,
+        "difficulty":  "easy",
+        "category":  "payments"
+    },
+    {
+        "id":  "gb024",
+        "query":  "My payment failed, but money was debited and no order was confirmed. What happens next?",
+        "expected_intent":  "billing_or_payment",
+        "expected_answer":  "If an amount was debited but the order was not confirmed, the refund is initiated automatically within 24 hours, though bank processing may take another 5-7 business days.",
+        "expected_source":  "payment_methods",
+        "expected_escalation":  false,
+        "difficulty":  "medium",
+        "category":  "payments"
+    },
+    {
+        "id":  "gb025",
+        "query":  "I used UPI for my purchase. How long does a refund usually take?",
+        "expected_intent":  "billing_or_payment",
+        "expected_answer":  "UPI refunds are typically processed within 24 hours.",
+        "expected_source":  "payment_methods",
+        "expected_escalation":  false,
+        "difficulty":  "easy",
+        "category":  "payments"
+    },
+    {
+        "id":  "gb026",
+        "query":  "Can you send my refund to a different bank account instead of the original payment method?",
+        "expected_intent":  "billing_or_payment",
+        "expected_answer":  "No. Refunds are issued to the original payment method. The only stated exception is that Premium Gold members may opt for instant wallet credit instead.",
+        "expected_source":  "support_faq",
+        "expected_escalation":  false,
+        "difficulty":  "medium",
+        "category":  "payments"
+    },
+    {
+        "id":  "gb027",
+        "query":  "I returned an item more than a week ago and still have no refund. Can someone check it?",
+        "expected_intent":  "billing_or_payment",
+        "expected_answer":  "If your return has already been received and it has been more than 7 business days for a standard customer, support should review the case using your return tracking number.",
+        "expected_source":  "support_faq",
+        "expected_escalation":  true,
+        "difficulty":  "medium",
+        "category":  "payments"
+    },
+    {
+        "id":  "gb028",
+        "query":  "My SBI 6-month EMI first installment looks higher than expected. Can this be checked?",
+        "expected_intent":  "billing_or_payment",
+        "expected_answer":  "Yes. This should be reviewed. A similar resolved ticket notes that an extra amount on SBI EMI can be a temporary processing hold that reverses later, but support should confirm your specific case.",
+        "expected_source":  "support_tickets",
+        "expected_escalation":  true,
+        "difficulty":  "hard",
+        "category":  "payments"
+    },
+    {
+        "id":  "gb029",
+        "query":  "What is the Acmera ProBook X15 price and battery life?",
+        "expected_intent":  "product_info",
+        "expected_answer":  "The Acmera ProBook X15 is priced at ₹78,999 and offers up to 10 hours of battery life.",
+        "expected_source":  "electronics_catalog",
+        "expected_escalation":  false,
+        "difficulty":  "easy",
+        "category":  "products"
+    },
+    {
+        "id":  "gb030",
+        "query":  "Does the SmartHome Hub Pro work with Apple HomeKit?",
+        "expected_intent":  "product_info",
+        "expected_answer":  "No. The Hub Pro is not currently HomeKit compatible.",
+        "expected_source":  "smart_home_ecosystem",
+        "expected_escalation":  false,
+        "difficulty":  "easy",
+        "category":  "products"
+    },
+    {
+        "id":  "gb031",
+        "query":  "What cloud storage plans are available for the SmartHome Camera 360?",
+        "expected_intent":  "product_info",
+        "expected_answer":  "There is a free live-view-only tier, a Basic plan at ₹99/month with 7-day history and motion alerts, and a Premium plan at ₹199/month with 30-day history plus advanced detection features.",
+        "expected_source":  "smart_home_ecosystem",
+        "expected_escalation":  false,
+        "difficulty":  "easy",
+        "category":  "products"
+    },
+    {
+        "id":  "gb032",
+        "query":  "What can the Acmera AI Assistant do?",
+        "expected_intent":  "product_info",
+        "expected_answer":  "It can control compatible smart home devices, play music and podcasts on Acmera audio devices, set reminders and timers, answer general knowledge questions, and check order status from your Acmera account.",
+        "expected_source":  "smart_home_ecosystem",
+        "expected_escalation":  false,
+        "difficulty":  "easy",
+        "category":  "products"
+    },
+    {
+        "id":  "gb033",
+        "query":  "My ProBook battery health dropped below 80 percent in the first year. Is that covered?",
+        "expected_intent":  "product_info",
+        "expected_answer":  "Yes. Battery capacity dropping below 80% within the warranty period is treated as a covered defect.",
+        "expected_source":  "warranty_policy",
+        "expected_escalation":  false,
+        "difficulty":  "medium",
+        "category":  "warranty"
+    },
+    {
+        "id":  "gb034",
+        "query":  "My ProBook will not turn on after charging and a hard reset. What should I do next?",
+        "expected_intent":  "product_info",
+        "expected_answer":  "Contact support. If the laptop still will not turn on after charging and basic troubleshooting, it may be a hardware defect covered under warranty.",
+        "expected_source":  "probook_troubleshooting",
+        "expected_escalation":  true,
+        "difficulty":  "medium",
+        "category":  "troubleshooting"
+    },
+    {
+        "id":  "gb035",
+        "query":  "How many dead pixels qualify for a ProBook display claim?",
+        "expected_intent":  "product_info",
+        "expected_answer":  "A warranty claim is allowed if there are 5 or more dead pixels, or at least 1 dead pixel in the center third of the display.",
+        "expected_source":  "probook_troubleshooting",
+        "expected_escalation":  false,
+        "difficulty":  "medium",
+        "category":  "troubleshooting"
+    },
+    {
+        "id":  "gb036",
+        "query":  "Can I buy an extended warranty after delivery?",
+        "expected_intent":  "product_info",
+        "expected_answer":  "Yes. Extended warranty plans can be purchased at the time of purchase or within 30 days of delivery.",
+        "expected_source":  "warranty_policy",
+        "expected_escalation":  false,
+        "difficulty":  "easy",
+        "category":  "warranty"
+    },
+    {
+        "id":  "gb037",
+        "query":  "What are the Premium Gold shipping benefits?",
+        "expected_intent":  "membership",
+        "expected_answer":  "Premium Gold members get free express shipping on all orders, priority processing, and order prioritization during peak seasons.",
+        "expected_source":  "premium_membership",
+        "expected_escalation":  false,
+        "difficulty":  "easy",
+        "category":  "membership"
+    },
+    {
+        "id":  "gb038",
+        "query":  "How do I check my Premium membership status?",
+        "expected_intent":  "membership",
+        "expected_answer":  "Go to Account Settings and then Membership in the app or website to see your current tier, annual spending, and next review date.",
+        "expected_source":  "support_faq",
+        "expected_escalation":  false,
+        "difficulty":  "easy",
+        "category":  "membership"
+    },
+    {
+        "id":  "gb039",
+        "query":  "What happens if my Premium status is downgraded?",
+        "expected_intent":  "membership",
+        "expected_answer":  "You are notified 30 days before the downgrade takes effect and keep your current tier benefits during a 90-day grace period.",
+        "expected_source":  "support_faq",
+        "expected_escalation":  false,
+        "difficulty":  "medium",
+        "category":  "membership"
+    },
+    {
+        "id":  "gb040",
+        "query":  "Can I share my Premium benefits with family members?",
+        "expected_intent":  "membership",
+        "expected_answer":  "Premium benefits are tied to individual accounts and cannot be shared. Premium Gold members may add one secondary account holder with Premium Silver benefits through their account manager.",
+        "expected_source":  "support_faq",
+        "expected_escalation":  false,
+        "difficulty":  "medium",
+        "category":  "membership"
+    },
+    {
+        "id":  "gb041",
+        "query":  "How much more do I need to spend to reach Premium Gold from 52000 rupees this year?",
+        "expected_intent":  "membership",
+        "expected_answer":  "Premium Gold requires ₹75,000 in annual spending, so you would need ₹23,000 more.",
+        "expected_source":  "support_tickets",
+        "expected_escalation":  false,
+        "difficulty":  "medium",
+        "category":  "membership"
+    },
+    {
+        "id":  "gb042",
+        "query":  "How many shipping addresses and payment methods can Premium members store?",
+        "expected_intent":  "membership",
+        "expected_answer":  "Premium members can store up to 10 shipping addresses and 5 payment methods.",
+        "expected_source":  "premium_membership",
+        "expected_escalation":  false,
+        "difficulty":  "easy",
+        "category":  "membership"
+    },
+    {
+        "id":  "gb043",
+        "query":  "My account was locked after a suspicious login. How do I regain access?",
+        "expected_intent":  "general",
+        "expected_answer":  "You need to verify your identity through your registered email to unlock the account, so this should be handled through support or the account recovery flow.",
+        "expected_source":  "account_management",
+        "expected_escalation":  true,
+        "difficulty":  "medium",
+        "category":  "account"
+    },
+    {
+        "id":  "gb044",
+        "query":  "Can I request a full export of my Acmera data?",
+        "expected_intent":  "general",
+        "expected_answer":  "Yes. You can request a full data export through Account Settings or by contacting support, and export requests are fulfilled within 30 days.",
+        "expected_source":  "account_management",
+        "expected_escalation":  true,
+        "difficulty":  "medium",
+        "category":  "account"
+    },
+    {
+        "id":  "gb045",
+        "query":  "Can I withdraw my Acmera Wallet balance back to my bank account?",
+        "expected_intent":  "general",
+        "expected_answer":  "No. Wallet balance cannot be withdrawn as cash or transferred to a bank account. It can only be used for purchases on the Acmera platform.",
+        "expected_source":  "acmera_wallet",
+        "expected_escalation":  false,
+        "difficulty":  "easy",
+        "category":  "rewards"
+    },
+    {
+        "id":  "gb046",
+        "query":  "How long do referral wallet credits last?",
+        "expected_intent":  "general",
+        "expected_answer":  "Referral wallet credits are promotional credits and expire 90 days from the date of issue.",
+        "expected_source":  "referral_program",
+        "expected_escalation":  false,
+        "difficulty":  "easy",
+        "category":  "rewards"
+    },
+    {
+        "id":  "gb047",
+        "query":  "Can you match a competitor price for me?",
+        "expected_intent":  "general",
+        "expected_answer":  "Please contact support to discuss your request. I cannot confirm any non-public pricing decisions here.",
+        "expected_source":  "internal_pricing",
+        "expected_escalation":  true,
+        "difficulty":  "hard",
+        "category":  "pricing"
+    },
+    {
+        "id":  "gb048",
+        "query":  "I need a custom quote for 700 branded laptops for employee gifts. What should I do?",
+        "expected_intent":  "general",
+        "expected_answer":  "This needs a business quote. For orders over 500 units, Acmera provides custom quotes through corporate@acmera.com, and branded customization is available on eligible products.",
+        "expected_source":  "corporate_gifting",
+        "expected_escalation":  true,
+        "difficulty":  "hard",
+        "category":  "business"
+    },
+    {
+        "id":  "gb049",
+        "query":  "Do refurbished Acmera Renewed products support extended warranty plans?",
+        "expected_intent":  "general",
+        "expected_answer":  "No. Acmera Renewed products come with a 6-month warranty and are not eligible for extended warranty plans.",
+        "expected_source":  "sustainability",
+        "expected_escalation":  false,
+        "difficulty":  "medium",
+        "category":  "sustainability"
+    },
+    {
+        "id":  "gb050",
+        "query":  "If I choose standard shipping instead of express, do I get any environmental reward?",
+        "expected_intent":  "general",
+        "expected_answer":  "Yes. Customers who choose standard shipping receive a ₹10 Acmera Wallet credit as a thank-you for choosing the lower-emission option.",
+        "expected_source":  "sustainability",
+        "expected_escalation":  false,
+        "difficulty":  "easy",
+        "category":  "sustainability"
+    }
+]

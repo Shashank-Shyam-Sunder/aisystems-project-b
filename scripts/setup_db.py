@@ -12,7 +12,7 @@ load_dotenv()
 def get_connection():
     return psycopg2.connect(
         host=os.getenv("PG_HOST", "localhost"),
-        port=os.getenv("PG_PORT", "5434"),
+        port=os.getenv("PG_PORT", "5436"),
         user=os.getenv("PG_USER", "workshop"),
         password=os.getenv("PG_PASSWORD", "workshop123"),
         dbname=os.getenv("PG_DATABASE", "acmera_kb"),
